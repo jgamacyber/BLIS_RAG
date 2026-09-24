@@ -50,7 +50,7 @@ python main.py demo                           # roteiro completo
 
 **Busca exata, não aproximada.** O RAG original indexa 21 milhões de passagens com FAISS + HNSW, uma aproximação necessária nessa escala. Aqui, com ~100 chunks, a busca exata roda em milissegundos e serve de referência de acurácia — além de deixar a conta do cosseno visível no código.
 
-**O gerador é obrigado a se abster.** O prompt exige citação por passagem e define uma frase exata para quando o contexto não basta. Um RAG que sempre responde não é melhor que um que às vezes admite não saber — é só menos honesto.
+**O gerador é obrigado a se abster.** O prompt exige citação por passagem e define uma frase exata para quando o contexto não basta. Um RAG que sempre responde não é melhor que um que às vezes admite não saber é só menos honesto.
 
 **Cache de embeddings.** Reindexar o corpus é a operação mais repetida durante o estudo. O cache em `indice/cache_embeddings.json` evita recalcular e gastar créditos à toa.
 
