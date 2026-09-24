@@ -157,7 +157,7 @@ Referência medida com o embedder **offline** (`EMBEDDING_PROVIDER=local`):
 | MRR@4 | 0,628 |
 | nDCG@4 | 0,653 |
 
-Com `text-embedding-3-small` os números devem ser **claramente melhores** — é justamente esse o ponto do experimento. Anote os seus e compare.
+Com `text-embedding-3-small` os números devem ser **claramente melhores** --> é justamente esse o ponto do experimento. Anote os seus e compare.
 
 **Custo:** 24 embeddings de pergunta (o índice já está em cache). Desprezível.
 
