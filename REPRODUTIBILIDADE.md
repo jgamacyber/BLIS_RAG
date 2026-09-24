@@ -51,8 +51,6 @@ EMBEDDING_MODEL=openai/text-embedding-3-small
 EMBEDDING_PROVIDER=openrouter
 ```
 
-> O `.env` está no `.gitignore` e nunca deve ser commitado.
-
 ---
 
 ## 2. Validação sem custo
