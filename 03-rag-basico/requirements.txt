@@ -1,0 +1,6 @@
+openai>=1.40.0
+python-dotenv>=1.0.0
+numpy>=1.24.0
+
+# Opcional: leitura de PDFs no corpus
+pypdf>=4.0.0

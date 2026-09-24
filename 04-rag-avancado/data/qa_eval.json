@@ -1,0 +1,122 @@
+[
+  {
+    "pergunta": "Quem propôs a arquitetura RAG e em que ano?",
+    "docs_relevantes": ["rag_lewis"],
+    "resposta_referencia": "Patrick Lewis e coautores do Facebook AI Research, UCL e NYU, em 2020."
+  },
+  {
+    "pergunta": "Qual a diferença entre RAG-Sequence e RAG-Token?",
+    "docs_relevantes": ["rag_lewis"],
+    "resposta_referencia": "RAG-Sequence usa o mesmo documento recuperado para gerar a sequência inteira; RAG-Token permite que cada token gerado use um documento diferente."
+  },
+  {
+    "pergunta": "Em quantas palavras o RAG divide os artigos da Wikipédia?",
+    "docs_relevantes": ["rag_lewis", "dpr_karpukhin"],
+    "resposta_referencia": "Blocos disjuntos de 100 palavras, resultando em cerca de 21 milhões de passagens."
+  },
+  {
+    "pergunta": "Qual biblioteca o RAG usa para construir o índice de busca vetorial?",
+    "docs_relevantes": ["rag_lewis"],
+    "resposta_referencia": "FAISS, com aproximação HNSW."
+  },
+  {
+    "pergunta": "Qual a acurácia top-5 do DPR comparada à do BM25?",
+    "docs_relevantes": ["dpr_karpukhin"],
+    "resposta_referencia": "65,2% do DPR contra 42,9% do BM25."
+  },
+  {
+    "pergunta": "O que são negativos no lote (in-batch negatives) no treinamento do DPR?",
+    "docs_relevantes": ["dpr_karpukhin"],
+    "resposta_referencia": "Reaproveitar as passagens positivas das outras perguntas do mesmo mini-lote como negativas, gerando B ao quadrado pares a partir de B perguntas."
+  },
+  {
+    "pergunta": "Que arquitetura de codificador o DPR utiliza e com qual dimensão?",
+    "docs_relevantes": ["dpr_karpukhin"],
+    "resposta_referencia": "Bi-encoder com duas redes BERT-base independentes, usando o token [CLS], com d igual a 768."
+  },
+  {
+    "pergunta": "O que é a curva em U descrita no Lost in the Middle?",
+    "docs_relevantes": ["lost_in_the_middle"],
+    "resposta_referencia": "O desempenho é mais alto quando a informação relevante está no começo ou no fim do contexto, e cai quando ela está no meio."
+  },
+  {
+    "pergunta": "Quanto melhora o desempenho ao usar 50 documentos em vez de 20?",
+    "docs_relevantes": ["lost_in_the_middle"],
+    "resposta_referencia": "Cerca de 1,5% no GPT-3.5-Turbo e cerca de 1% no Claude-1.3."
+  },
+  {
+    "pergunta": "Como o HyDE constrói o vetor final da consulta?",
+    "docs_relevantes": ["hyde"],
+    "resposta_referencia": "Média dos embeddings de N documentos hipotéticos gerados mais o embedding da própria consulta, totalizando N+1 vetores."
+  },
+  {
+    "pergunta": "Por que as alucinações do documento hipotético no HyDE não atrapalham?",
+    "docs_relevantes": ["hyde"],
+    "resposta_referencia": "O codificador atua como um compressor com perdas, filtrando os detalhes inventados ao produzir o vetor denso, o que ancora a busca no corpus real."
+  },
+  {
+    "pergunta": "Quais são os quatro tokens de reflexão do Self-RAG?",
+    "docs_relevantes": ["self_rag"],
+    "resposta_referencia": "Retrieve, IsREL, IsSUP e IsUSE."
+  },
+  {
+    "pergunta": "Que algoritmo de clusterização o RAPTOR usa para agrupar os chunks?",
+    "docs_relevantes": ["raptor"],
+    "resposta_referencia": "Gaussian Mixture Models com redução de dimensionalidade por UMAP e seleção do número de clusters por BIC."
+  },
+  {
+    "pergunta": "Quais são as duas estratégias de consulta da árvore do RAPTOR?",
+    "docs_relevantes": ["raptor"],
+    "resposta_referencia": "Travessia da árvore camada por camada e árvore colapsada, que avalia todos os nós de uma vez."
+  },
+  {
+    "pergunta": "Quantos conjuntos de dados e tarefas compõem o benchmark BEIR?",
+    "docs_relevantes": ["beir"],
+    "resposta_referencia": "18 conjuntos de dados cobrindo 9 tarefas de recuperação."
+  },
+  {
+    "pergunta": "Qual foi a conclusão do BEIR sobre o BM25 em cenário zero-shot?",
+    "docs_relevantes": ["beir", "bm25_lexical"],
+    "resposta_referencia": "O BM25 é um baseline robusto e nenhuma abordagem domina consistentemente todos os conjuntos."
+  },
+  {
+    "pergunta": "Quantas tarefas, conjuntos e idiomas o MTEB abrange?",
+    "docs_relevantes": ["mteb"],
+    "resposta_referencia": "8 tarefas, 58 conjuntos de dados e 112 idiomas."
+  },
+  {
+    "pergunta": "Para que servem os parâmetros k1 e b do BM25?",
+    "docs_relevantes": ["bm25_lexical"],
+    "resposta_referencia": "k1 controla a saturação da frequência do termo e b controla a normalização pelo comprimento do documento."
+  },
+  {
+    "pergunta": "Como o Reciprocal Rank Fusion combina rankings diferentes?",
+    "docs_relevantes": ["busca_hibrida_rrf"],
+    "resposta_referencia": "Soma 1 dividido por (k mais a posição) de cada ranking, tipicamente com k igual a 60, ignorando os scores brutos."
+  },
+  {
+    "pergunta": "Qual a diferença entre bi-encoder e cross-encoder?",
+    "docs_relevantes": ["reranking"],
+    "resposta_referencia": "O bi-encoder codifica consulta e documento separadamente, permitindo pré-computar vetores; o cross-encoder concatena os dois e aplica atenção cruzada, sendo mais preciso e muito mais caro."
+  },
+  {
+    "pergunta": "O que é step-back prompting na reescrita de consultas?",
+    "docs_relevantes": ["query_rewriting"],
+    "resposta_referencia": "Pedir ao modelo que formule uma pergunta mais geral e abstrata a partir da pergunta específica, para recuperar o contexto conceitual de fundo."
+  },
+  {
+    "pergunta": "O que mede a métrica nDCG e onde ela é usada como principal?",
+    "docs_relevantes": ["avaliacao_rag", "beir"],
+    "resposta_referencia": "Mede a qualidade do ranking descontando cada acerto por um fator logarítmico da posição; é a métrica principal do BEIR, com k igual a 10."
+  },
+  {
+    "pergunta": "Por que chunks muito grandes prejudicam a recuperação?",
+    "docs_relevantes": ["chunking_estrategias"],
+    "resposta_referencia": "Diluem o sinal do embedding: um vetor que representa vários assuntos fica próximo de nenhum deles em particular."
+  },
+  {
+    "pergunta": "Qual baseline mostra o teto de desempenho de um sistema de RAG?",
+    "docs_relevantes": ["avaliacao_rag"],
+    "resposta_referencia": "O baseline oracle, que fornece de propósito a passagem correta ao gerador."
+  }
+]
