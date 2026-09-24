@@ -1,0 +1,36 @@
+# Segredos — NUNCA versionar
+.env
+*.env
+!.env.example
+
+# Índices e caches gerados (reconstrua com: python main.py indexar)
+indice/
+*/indice/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Papers (copyright) — não versionar
+*.pdf
+
+# SO / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Resultados de execução
+resultados/
+*.log
+
+*.pdf
+!docs/*.pdf    # permite PDFs que você mesmo gerou
