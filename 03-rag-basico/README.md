@@ -59,7 +59,7 @@ python main.py demo                           # roteiro completo
 ## O que observar
 
 1. **A abstenção.** Pergunte algo fora do corpus (`data/perguntas_sem_resposta.json`). O sistema deve recusar, não inventar.
-2. **O efeito do chunking.** `comparar-chunking` mostra que não existe estratégia universalmente melhor — depende do corpus.
+2. **O efeito do chunking.** `comparar-chunking` mostra que não existe estratégia universalmente melhor, depende do corpus.
 3. **Recall vs. Precision.** Aumentar o `top_k` melhora o recall e piora a precision. O Lost in the Middle explica por que aumentar indefinidamente não ajuda.
 4. **A diferença entre os embedders.** Rode `avaliar` com `EMBEDDING_PROVIDER=local` e depois com `openrouter`. A distância entre os dois é o valor concreto de um bom modelo de embeddings.
 
