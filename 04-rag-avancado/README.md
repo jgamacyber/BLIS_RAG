@@ -99,13 +99,13 @@ Rode `python main.py comparar` (sem `--rapido`) para medir também reescrita, Hy
 
 **Self-RAG por prompting, não por treinamento.** O artigo original *treina* um modelo para emitir tokens de reflexão como parte do vocabulário, usando dados anotados por um modelo crítico. Aqui os mesmos sinais são obtidos por prompting de um LLM de instrução. O comportamento é análogo, a mecânica é diferente, e os resultados **não são comparáveis aos do artigo**.
 
-**RAPTOR simplificado.** O artigo usa UMAP + Gaussian Mixture Models com clusterização suave (um nó pode pertencer a vários clusters) e seleção do número de clusters por BIC. Aqui há k-means com clusterização rígida, implementado no próprio arquivo, sem `scikit-learn`. O comportamento qualitativo — abstração crescente camada a camada — é preservado.
+**RAPTOR simplificado.** O artigo usa UMAP + Gaussian Mixture Models com clusterização suave (um nó pode pertencer a vários clusters) e seleção do número de clusters por BIC. Aqui há k-means com clusterização rígida, implementado no próprio arquivo, sem `scikit-learn`. O comportamento qualitativo, abstração crescente camada a camada é preservado.
 
 **Por que RRF em vez de somar scores.** O BM25 produz scores não normalizados que podem ir de 0 a valores arbitrariamente altos; o cosseno vive entre -1 e 1. O RRF ignora a magnitude e funde por posição, o que dispensa calibração. A soma ponderada também está implementada, em `fusao.py`, para comparação.
 
-**O reranking só ajuda se houver candidatos.** O ganho vem de recuperar 20 e cortar para 4 — assim o sistema pode corrigir erros de ordenação do recuperador. Recuperar 4 e reranquear 4 não corrige nada. É por isso que `CANDIDATOS=20` e `TOP_K=4` são valores diferentes.
+**O reranking só ajuda se houver candidatos.** O ganho vem de recuperar 20 e cortar para 4, assim o sistema pode corrigir erros de ordenação do recuperador. Recuperar 4 e reranquear 4 não corrige nada. É por isso que `CANDIDATOS=20` e `TOP_K=4` são valores diferentes.
 
-**Falhas não derrubam o pipeline.** Se o HyDE não gerar, usa-se a consulta original. Se o reranking falhar numa passagem, ela recebe nota neutra. Se o `IsREL` descartar tudo, todos os candidatos são mantidos — um contexto ruidoso é melhor que um contexto vazio.
+**Falhas não derrubam o pipeline.** Se o HyDE não gerar, usa-se a consulta original. Se o reranking falhar numa passagem, ela recebe nota neutra. Se o `IsREL` descartar tudo, todos os candidatos são mantidos, um contexto ruidoso é melhor que um contexto vazio.
 
 ## O que observar
 
