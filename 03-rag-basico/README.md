@@ -54,7 +54,7 @@ python main.py demo                           # roteiro completo
 
 **Cache de embeddings.** Reindexar o corpus é a operação mais repetida durante o estudo. O cache em `indice/cache_embeddings.json` evita recalcular e gastar créditos à toa.
 
-**Modo offline.** `EMBEDDING_PROVIDER=local` usa um embedder determinístico de hashing de n-gramas. A qualidade semântica é baixa de propósito — serve para validar o encanamento sem API, não para produzir resultados.
+**Modo offline.** `EMBEDDING_PROVIDER=local` usa um embedder determinístico de hashing de n-gramas. A qualidade semântica é baixa de propósito —-> serve para validar o encanamento sem API, não para produzir resultados.
 
 ## O que observar
 
