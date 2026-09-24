@@ -83,7 +83,7 @@ python testes_mock.py
 - Módulo 03: 21 verificações
 - Módulo 04: 72 verificações, incluindo o pipeline avançado ponta a ponta
 
-> Esta suíte é a que mais economiza crédito: um erro de digitação em `client.embeddings.create`, ou um parser de JSON frágil, só apareceria em produção — aqui aparece de graça.
+> Esta suíte é a que mais economiza token: um erro de digitação em `client.embeddings.create`, ou um parser de JSON frágil, só apareceria em produção — aqui aparece de graça.
 
 Se algo falhar nas duas seções acima, é bug no código ou incompatibilidade de ambiente. Não vale seguir para os comandos pagos.
 
