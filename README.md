@@ -69,7 +69,7 @@ EMBEDDING_MODEL=openai/text-embedding-3-small
 EMBEDDING_PROVIDER=openrouter
 ```
 
-> Existe um **modo offline** (`EMBEDDING_PROVIDER=local`) com um embedder determinístico por hashing, sem rede e sem custo. Serve apenas para validar o encanamento do pipeline — a qualidade semântica é baixa, porque é um saco-de-n-gramas projetado, não um modelo treinado.
+> Existe um **modo offline** (`EMBEDDING_PROVIDER=local`) com um embedder determinístico por hashing, sem rede e sem custo. Serve apenas para validar o encanamento do pipeline, a qualidade semântica é baixa, porque é um saco-de-n-gramas projetado, não um modelo treinado.
 
 ## Corpus de exemplo
 
