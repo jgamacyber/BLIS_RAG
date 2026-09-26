@@ -57,7 +57,7 @@ EMBEDDING_PROVIDER=openrouter
 
 Antes de gastar qualquer crédito, rode as duas suítes de teste. Nenhuma delas faz uma única chamada de rede.
 
-### 2.1 Testes offline — a lógica que não depende do LLM
+### 2.1 Testes offline - a lógica que não depende do LLM
 
 Exercita chunking, BM25, fusão RRF, ordenação de contexto, k-means, índice vetorial e métricas.
 
@@ -70,7 +70,7 @@ python testes_offline.py
 - Módulo 03: 30 verificações
 - Módulo 04: 66 verificações
 
-### 2.2 Testes com LLM simulado — as chamadas de API
+### 2.2 Testes com LLM simulado - as chamadas de API
 
 Substitui o cliente da OpenRouter por um dublê que devolve respostas controladas. Verifica que as chamadas são montadas no formato certo (modelo, mensagens, `temperature`, batching de embeddings), que as respostas são interpretadas corretamente, e que respostas malformadas não derrubam o pipeline.
 
@@ -216,7 +216,7 @@ python main.py indexar
 python main.py bm25 "Como o HyDE constrói o vetor final da consulta?"
 ```
 
-**Esperado:** lista de termos com seus IDFs (`vetor` 2,940 · `final` 2,940 · `hyde` 2,504 · `consulta` 1,970 · `constroi` 0,000 — ausente do corpus) e o top-4, liderado por `hyde#006`.
+**Esperado:** lista de termos com seus IDFs (`vetor` 2,940 · `final` 2,940 · `hyde` 2,504 · `consulta` 1,970 · `constroi` 0,000  ausente do corpus) e o top-4, liderado por `hyde#006`.
 
 **Custo: zero.** Nenhuma chamada de API.
 
@@ -243,7 +243,7 @@ Versão completa (inclui reescrita, HyDE e reranking — **chama o LLM**):
 python main.py comparar
 ```
 
-**Custo estimado:** cerca de 24 consultas × (1 reescrita + 1 HyDE + 20 notas de reranking) ≈ **500 chamadas de chat**. Com `gpt-4o-mini`, estime **US$ 0,15 a 0,40**. É o comando mais caro do repositório — rode uma vez e guarde a saída.
+**Custo estimado:** cerca de 24 consultas × (1 reescrita + 1 HyDE + 20 notas de reranking) ≈ **500 chamadas de chat**. Com `gpt-4o-mini`, estime **US$ 0,15 a 0,40**. É o comando mais caro do repositório, rode uma vez e guarde a saída.
 
 > **Sobre o salto para 100%:** ele é grande porque o embedder offline é fraco em semântica, e o BM25 cobre exatamente esse ponto cego. Com embeddings reais o baseline denso sobe muito, e o ganho do híbrido fica bem menor. Reproduza com sua chave: o número que importa para o seu relatório é o seu.
 
@@ -283,7 +283,7 @@ Para provocar uma crítica negativa, pergunte algo parcialmente coberto pelo cor
 python main.py perguntar "Quantos parâmetros tem o modelo Self-RAG e qual seu custo de treino?" --preset completo
 ```
 
-O corpus menciona 7 e 13 bilhões de parâmetros, mas não o custo de treino — espere `partially` em `IsSUP`.
+O corpus menciona 7 e 13 bilhões de parâmetros, mas não o custo de treino, espere `partially` em `IsSUP`.
 
 ### 4.7 RAPTOR (opcional, mais caro)
 
@@ -340,7 +340,7 @@ O que **varia** entre execuções:
 
 - Embeddings da API podem mudar entre versões do modelo, alterando ligeiramente as métricas
 - Geração de texto: mesmo com `temperature=0.0` o resultado não é bit-a-bit reprodutível em APIs
-- **HyDE usa `temperature=0.7` por definição** (é o valor do artigo) — os documentos hipotéticos mudam a cada execução, e portanto a recuperação com HyDE também
+- **HyDE usa `temperature=0.7` por definição** (é o valor do artigo), os documentos hipotéticos mudam a cada execução, e portanto a recuperação com HyDE também
 - As notas do reranking por LLM podem oscilar em ±1 ponto
 
 Para um relatório, rode as configurações com LLM **3 vezes** e reporte média e desvio, em vez de um número único.
