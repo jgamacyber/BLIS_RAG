@@ -175,7 +175,7 @@ python main.py comparar-chunking
 | frases | 88 | 87,5% | 81,2% | 0,715 | 0,716 |
 | recursivo | 103 | 79,2% | 75,0% | 0,628 | 0,653 |
 
-> Com este corpus pequeno e homogêneo, o `recursivo` não lidera — resultado legítimo e que vale registrar. O efeito do chunking cresce com o tamanho e a heterogeneidade do corpus. **Não generalize a partir de 14 documentos.**
+> Com este corpus pequeno e homogêneo, o `recursivo` não lidera, resultado legítimo e que vale registrar. O efeito do chunking cresce com o tamanho e a heterogeneidade do corpus. **Não generalize a partir de 14 documentos.**
 
 **Custo:** reindexação com 3 estratégias ≈ 3× o custo de 3.1, ou **~US$ 0,0006**.
 
